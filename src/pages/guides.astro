@@ -1,0 +1,233 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const pageTitle = "Guides";
+const pageDescription = "Explore our comprehensive skateboarding guides, from beginner tips to advanced tricks, designed to inspire your adventures on ramps and through natural skate spots.";
+
+const guides = [
+  {
+    title: "Choosing Your First Board",
+    description: "Select a setup that matches your style and local skate spots, from urban parks to wooded trails.",
+    icon: "fa-mountain"
+  },
+  {
+    title: "Basic Stance and Balance",
+    description: "Master the pop stance and find your center, inspired by the steady flow of a mountain stream.",
+    icon: "fa-water"
+  },
+  {
+    title: "Safety Gear Must-Haves",
+    description: "Essential protective equipment for every rider, from beginners to pros.",
+    icon: "fa-shield-alt"
+  },
+  {
+    title: "Ollie 101",
+    description: "The foundation of street skateboarding - learn the classic jump technique.",
+    icon: "fa-feather-alt"
+  },
+  {
+    title: "Ramp Riding Fundamentals",
+    description: "How to approach and master different ramp features and transitions.",
+    icon: "fa-road"
+  },
+  {
+    title: "Natural Environment Skating",
+    description: "Techniques for skating in outdoor settings, from parks to natural terrain.",
+    icon: "fa-tree"
+  }
+];
+
+const beginnerEssentials = [
+  {
+    title: "Getting Started with Your First Skateboard",
+    description: "Learn the basics of board selection, stance, and initial skating techniques."
+  },
+  {
+    title: "Understanding Your Board's Components",
+    description: "A breakdown of trucks, wheels, and deck materials to help you choose wisely."
+  },
+  {
+    title: "Essential Safety Protocols",
+    description: "Protect yourself with the right gear and awareness while skating."
+  }
+];
+
+const intermediateTechniques = [
+  {
+    title: "Mastering the Manual",
+    description: "Balance on your tail wheel for an extended period with proper technique."
+  },
+  {
+    title: "Learning the Kickturn",
+    description: "Essential turning technique that will help you navigate tight spaces."
+  },
+  {
+    title: "Grind and Slide Basics",
+    description: "Introduction to sliding and grinding techniques on rails and boxes."
+  }
+];
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+
+  <!-- Hero Section -->
+  <div class="relative bg-gradient-to-br from-primary to-emerald-900 py-24 md:py-32">
+    <div class="absolute inset-0 bg-black opacity-20"></div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
+          Guides
+        </h1>
+        <p class="text-xl md:text-2xl text-emerald-100 mb-8 max-w-2xl mx-auto">
+          Your Essential Guide to Skateboarding Adventures and Tips
+        </p>
+        <p class="text-lg text-emerald-200 max-w-3xl mx-auto">
+          Explore our comprehensive skateboarding guides, from beginner tips to advanced tricks, designed to inspire your adventures on ramps and through natural skate spots.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Intro Section -->
+  <section class="py-16 bg-gradient-to-b from-white to-emerald-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="flex items-start mb-12">
+          <div class="text-5xl text-accent mr-4">🍃</div>
+          <div>
+            <h2 class="text-3xl font-bold text-primary mb-4">Beginner Essentials</h2>
+            <p class="text-lg text-gray-700">
+              Start your journey on solid ground with these foundational guides:
+            </p>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          {beginnerEssentials.map((guide, index) => (
+            <div 
+              class="bg-white rounded-xl shadow-md p-6 border border-emerald-100 hover:shadow-lg transition-shadow duration-300"
+              key={index}
+            >
+              <div class="text-3xl text-accent mb-4">
+                <i class="fas fa-leaf"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-primary mb-2">{guide.title}</h3>
+              <p class="text-gray-600">{guide.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guides Grid -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-primary mb-4">Comprehensive Guides</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Explore our curated collection of tips, techniques, and stories that will fuel your ride
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {guides.map((guide, index) => (
+          <div 
+            class="bg-gradient-to-br from-emerald-50 to-white rounded-xl shadow-md overflow-hidden border border-emerald-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+            key={index}
+          >
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <div class="text-2xl text-accent mr-3">
+                  <i class={`fas ${guide.icon}`}></i>
+                </div>
+                <h3 class="text-xl font-bold text-primary">{guide.title}</h3>
+              </div>
+              <p class="text-gray-600 mb-4">{guide.description}</p>
+              <button class="text-sm font-medium text-accent hover:text-emerald-700 flex items-center">
+                Read Guide
+                <i class="fas fa-arrow-right ml-2 text-xs"></i>
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Intermediate Section -->
+  <section class="py-16 bg-gradient-to-b from-emerald-50 to-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-primary mb-4">Intermediate Techniques</h2>
+          <p class="text-lg text-gray-600">
+            Build upon your foundation with these essential skills for progression
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {intermediateTechniques.map((technique, index) => (
+            <div 
+              class="bg-white rounded-xl shadow-md p-6 border border-emerald-100 hover:shadow-lg transition-shadow duration-300"
+              key={index}
+            >
+              <div class="text-3xl text-emerald-600 mb-4">
+                <i class="fas fa-running"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-primary mb-2">{technique.title}</h3>
+              <p class="text-gray-600">{technique.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-r from-primary to-emerald-800">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+          Ready to Level Up?
+        </h2>
+        <p class="text-xl text-emerald-100 mb-8">
+          Join our community of skaters exploring new terrain and perfecting their craft
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <button class="bg-accent text-primary font-bold py-3 px-8 rounded-full hover:bg-amber-400 transition-colors duration-300">
+            Explore More Guides
+          </button>
+          <button class="bg-transparent border-2 border-white text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-primary transition-colors duration-300">
+            Join Our Community
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+  
+  .hero-pattern {
+    background: linear-gradient(135deg, rgba(30, 58, 30, 0.9) 0%, rgba(30, 58, 30, 0.9) 100%), 
+                url('https://images.unsplash.com/photo-1542903660-91b5577320e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .border-gradient {
+    border: 1px solid;
+    border-image: linear-gradient(to right, #1e3a1e, #fbbf24) 1;
+  }
+</style>

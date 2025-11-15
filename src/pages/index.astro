@@ -1,0 +1,150 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const pageTitle = "Home - Ramp & Roll Digest";
+const pageDescription = "Discover skateboarding adventures, tips, and inspiration with Ramp & Roll Digest. Your minimalist guide to riding the ramps and rolling through nature's playgrounds.";
+
+const features = [
+  {
+    title: "Adventure Awaits",
+    description: "Explore hidden skate spots in serene natural settings, from coastal cliffs to forested trails.",
+    icon: "fas fa-mountain"
+  },
+  {
+    title: "Pro Tips & Tricks",
+    description: "Master ollies, kickflips, and beyond with step-by-step guides tailored for all levels.",
+    icon: "fas fa-lightbulb"
+  },
+  {
+    title: "Community Vibes",
+    description: "Connect with fellow shredders sharing stories, gear reviews, and event updates.",
+    icon: "fas fa-users"
+  }
+];
+
+const highlights = [
+  {
+    title: "Featured Spot",
+    content: "The winding paths of <a href='#' class='text-accent hover:underline'>Evergreen Skate Park</a> – where nature amplifies every turn."
+  },
+  {
+    title: "Latest Article",
+    content: "Mastering the perfect kickflip in urban environments"
+  },
+  {
+    title: "Upcoming Event",
+    content: "Nature Skate Festival 2023 - Join us in the mountains!"
+  }
+];
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-primary to-accent opacity-10"></div>
+    <div class="container mx-auto px-4 py-24 md:py-32 relative">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-6xl font-bold text-primary mb-6 leading-tight">
+          Welcome to Ramp & Roll Digest
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-700 mb-8">
+          Your Essential Guide to Skateboarding Adventures and Tips
+        </p>
+        <p class="text-lg text-gray-600 mb-10 max-w-2xl">
+          Embrace the thrill of the ride where urban edges meet natural flows. Whether you're grinding rails under city lights or carving paths through lush parks, Ramp & Roll Digest is here to fuel your passion.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#features" class="bg-primary hover:bg-primary-dark text-white font-semibold py-3 px-8 rounded-lg transition duration-300 text-center">
+            Explore Adventures
+          </a>
+          <a href="#latest" class="border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold py-3 px-8 rounded-lg transition duration-300 text-center">
+            Latest Highlights
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Why Skate with Us?</h2>
+        <div class="w-24 h-1 bg-accent mx-auto"></div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        {features.map((feature, index) => (
+          <div key={index} class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300 transform hover:-y-2">
+            <div class="w-16 h-16 rounded-full bg-primary bg-opacity-10 flex items-center justify-center mb-6">
+              <i class={`${feature.icon} text-2xl text-primary`}></i>
+            </div>
+            <h3 class="text-xl font-bold text-primary mb-3">{feature.title}</h3>
+            <p class="text-gray-600">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Highlights Section -->
+  <section id="latest" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Latest Highlights</h2>
+        <div class="w-24 h-1 bg-accent mx-auto"></div>
+      </div>
+      
+      <div class="max-w-3xl mx-auto">
+        <div class="space-y-8">
+          {highlights.map((highlight, index) => (
+            <div key={index} class="border-l-4 border-accent pl-6 py-4 bg-gray-50 rounded-r-lg">
+              <h3 class="text-xl font-bold text-primary mb-2">{highlight.title}</h3>
+              <p class="text-gray-700" dangerouslySetInnerHTML={{ __html: highlight.content }}></p>
+            </div>
+          ))}
+        </div>
+        
+        <div class="mt-12 text-center">
+          <a href="/articles" class="inline-block bg-primary hover:bg-primary-dark text-white font-semibold py-3 px-8 rounded-lg transition duration-300">
+            View All Articles
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-r from-primary to-accent text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Ride?</h2>
+      <p class="text-xl mb-10 max-w-2xl mx-auto">
+        Join thousands of riders discovering new spots and perfecting their craft with our expert advice.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/signup" class="bg-white text-primary hover:bg-gray-100 font-bold py-3 px-8 rounded-lg transition duration-300">
+          Join Our Community
+        </a>
+        <a href="/gear" class="bg-transparent border-2 border-white hover:bg-white hover:text-primary font-bold py-3 px-8 rounded-lg transition duration-300">
+          Explore Gear
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .hover\:-y-2:hover {
+    transform: translateY(-0.5rem);
+  }
+</style>
